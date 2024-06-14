@@ -8,7 +8,7 @@ class TestCreateUser:
     @allure.title("Создание уникального пользователя")
     def test_create_user_success(self, user_data):
         response = UserCRU.create_user(user_data)
-        assert response.status_code == 200
+        assert response.status_code == 200 and response.json()["success"] is True
 
 
     @allure.title("Создание пользователя, который уже зарегистрирован")
